@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <RootNamespace>VSUnusedCode</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Lib\Lib.Aot.csproj" />
+
+    <ProjectReference Include="..\Lib.SG\Lib.SG.csproj"
+                  OutputItemType="Analyzer"
+                  PrivateAssets="all"
+                  ReferenceOutputAssembly="false"
+                  SetTargetFramework="TargetFramework=netstandard2.0" />
+  </ItemGroup>
+
+</Project>

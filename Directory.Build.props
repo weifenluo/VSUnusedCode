@@ -1,0 +1,29 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>Latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IsAnalyzerProject Condition ="$(IsAnalyzerProject) == ''">false</IsAnalyzerProject>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(MSBuildProjectName.EndsWith('.Aot'))">
+    <IsAotProject>true</IsAotProject>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IsAotProject Condition ="$(IsAotProject) == ''">false</IsAotProject>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(IsAotProject)">
+    <DefineConstants>AOT</DefineConstants>
+    <BaseIntermediateOutputPath>obj.Aot</BaseIntermediateOutputPath>
+    <BaseOutputPath>bin.Aot</BaseOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(IsAotProject)">
+    <IsAotCompatible>true</IsAotCompatible>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,10 @@
+[Oo]bj/
+[Bb]in/
+[Oo]bj.*/
+[Bb]in.*/
+packages/
+.vs/
+[Tt]est[Rr]esults
+*.suo
+*proj.user
+*.lock.json

@@ -1,0 +1,28 @@
+<Project>
+  <ItemGroup>
+    <None Remove="*.targets" />
+  </ItemGroup>
+
+  <!--https://willich.io/2017/10/12/multiple-projects-in-the-same-folder/-->
+  
+  <ItemGroup Condition="!$(IsAotProject)">
+    <Compile Remove="**/Aot*.cs" />
+    <Compile Remove="**/*.Aot*.cs" />
+    <Compile Remove="**/*.Aot*.vb" />
+    <Compile Remove="obj.Aot\\**\*"/>
+    <Compile Remove="bin.Aot\\**\*"/>
+    <None Remove="bin.Aot\**" />
+    <None Remove="obj.Aot\**" />
+  </ItemGroup>
+
+  <ItemGroup Condition="$(IsAotProject)">
+    <Compile Remove="**/Reflection*.cs" />
+    <Compile Remove="**/*.Reflection*.cs" />
+    <Compile Remove="**/*.!Aot.cs" />
+    <Compile Remove="**/*.!Aot.vb" />
+    <Compile Remove="obj\\**\*"/>
+    <Compile Remove="bin\\**\*"/>
+    <None Remove="bin\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
+</Project>
